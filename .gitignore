@@ -10,3 +10,5 @@
 !/*.xdk
 !/.gitignore
 !/*.png
+
+/www/iOS_Distribution.mobileprovision
