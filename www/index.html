@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html ng-app="rosi-calculator">
+<!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+<head>
+    <title>Home Staging Calculator</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+<!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+    <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+    <style>
+    /* following three (cascaded) are equivalent to above three meta viewport statements */
+    /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+    /* see http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+    </style>
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/jquery.mmenu.all.css" />    <!-- mmenu -->
+    <link rel="stylesheet" href="css/extensions/jquery.mmenu.multiline.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />       <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="css/stagedhomes.css" />         <!-- Custom CSS -->
+
+    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+    <!-- Recommended location for your JavaScript libraries -->
+    <!-- These library references (below) are just examples to give you the general idea... -->
+    <!-- <script src="lib/mc/hammer.js"></script> -->
+    <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+<!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+    <script src="cordova.js" id="xdkJScordova_"></script>
+
+    <script src="js/app.js"></script>                 <!-- for your event code, see README and file comments for details -->
+    <!-- <script src="js/init-app.js"></script> -->   <!-- for your init code, see README and file comments for details -->
+    <script src="xdk/init-dev.js"></script>           <!-- normalizes device and document ready events, see file for details -->
+</head>
+
+<body ng-controller="MainCtrl">
+  <!-- *******************************************************
+    MENU SECTION
+  ******************************************************* -->
+  <div class="header">
+    <div class="header-alignment">
+      <a href="#my-menu" style="margin-top: -4px;"><img src="images/Button-Menu.png" style="width: 50px; height: 40px;" /></a>
+      <img src="images/Logo-StagedHomes.png" class="img-responsive main-logo center-block" style="padding-left: 10px;" alt="StagedHomes.com Logo" />
+    </div>
+  </div>
+
+  <!-- *******************************************************
+    MAIN CONTENT
+  ******************************************************* -->
+  <div class="content">
+    <div class="container" style="margin-top: 30px;">
+      <!-- Wrapper for slides -->
+      <div id="myCarousel" class="carousel slide mainBodyFont" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner" role="listbox">
+          
+          <!-- *******************************************************
+            Section 0: About
+          ******************************************************* -->
+          <div class="item" style="text-align: left;">
+           <!-- ICONS -->
+            <div class="text-center">
+              <img src="images/Logo-About.png" class="img-responsive center-block" alt="All StagedHomes.com Logo" />
+            </div>
+
+            <div class="paragraph-spacing">
+              StagedHomes.com<sup>&reg;</sup> is the internationally recognized leader of the Home Staging industry. StagedHomes.com<sup>&reg;</sup> is 
+              based on over 40 years of experience, leadership and training developed by Barb Schwarz, known as The 
+              Creator of Home Staging<sup>&reg;</sup>.  StagedHomes.com<sup>&reg;</sup> trains and supports the Home Staging industry 
+              with proven Accredited Staging Professional<sup>&reg;</sup> courses and The International Association of 
+              Home Staging Professionals<sup>&reg;</sup>
+            </div>
+
+            <!-- CONTACT INFO -->
+            <address class="paragraph-spacing" style="margin-bottom: 30px;">
+              <div><i class="fa fa-globe about-contact-info"></i><a href="#" onclick="intel.xdk.device.launchExternal('http://www.stagedhomes.com');">StagedHomes.com</a></div>
+              <div><i class="fa fa-phone about-contact-info"></i><a href="tel:1-800-392-7161">+1 800-392-7161</a></div>
+              <div><i class="fa fa-envelope-o about-contact-info"></i><a href="mailto:aspcourses@stagedhomes.com">aspcourses@stagedhomes.com</a></div>
+            </address>
+          </div><!-- Section: About -->
+
+          <!-- *******************************************************
+            Section 1: ROSI
+          ******************************************************* -->
+          <div class="item" style="text-align: left;">
+            <h1 class="becomeASP-header text-center">
+              ROSI<sup>&trade;</sup> = Return On Staging Investment<sup>&trade;</sup>
+            </h1>
+
+            <!-- ICONS -->
+            <div class="text-center">
+              <img src="images/Logo-About.png" class="img-responsive center-block" alt="All StagedHomes.com Logo" />
+            </div>
+
+            <div class="paragraph-spacing" style="margin-bottom: 30px;">
+              Staging is an investment with a high return. This is because Staged Homes sell faster and for more money. 
+              Barb Schwarz, The Creator of Home Staging<sup>&reg;</sup> always says, “<em>The investment of Staging IN your 
+              home is far less than a price reduction ON your home!</em>”
+            </div>
+          </div><!-- Section: About -->
+
+          <!-- *******************************************************
+            Section 2: How To Become An ASP
+          ******************************************************* -->
+          <div class="item" style="text-align: left;">
+            <h1 class="becomeASP-header text-center">
+              Why Should I Become an ASP<sup>&reg;</sup> Home Stager or ASP<sup>&reg;</sup> RE Agent?
+            </h1>
+
+            <!-- ICONS -->
+            <div class="text-center">
+              <img src="images/Logo-About.png" class="img-responsive center-block" alt="All StagedHomes.com Logo" />
+            </div>
+
+            <!-- CONTACT INFO -->
+            <section class="paragraph-spacing" style="margin-bottom: 30px;">
+              <div class="text-center becomeASP-asActive">
+                As An Active ASP<sup>&reg;</sup>:
+              </div>
+              <div>
+                <ol>
+                  <li class="becomeASP-list">Because I Will Take the World’s Leading Home Staging Training Course from the Company that Invented Home Staging<sup>&reg;</sup>!</li>
+                  <li class="becomeASP-list">I Will Earn the Number One Home Staging Designation, ASP<sup>&reg;</sup>, to Make More Money!</li>
+                  <li class="becomeASP-list">I Will Be Featured FREE on the World's #1 Home Staging Directory for the Public to Find Me</li>
+                  <li class="becomeASP-list">I Can Market My ASP<sup>&reg;</sup> Staged Homes Here FREE on the #1 Directory for Staged Homes For Sale</li>
+                  <li class="becomeASP-list">I Will Have Unlimited Use of the Vast On-Line Staging University<sup>&reg;</sup> as an Active ASP<sup>&reg;</sup>!</li>
+                  <li class="becomeASP-list">I Will Receive ASP<sup>&reg;</sup> Vendor Savings up to 50% with Companies like Sears<sup>&reg;</sup></li>
+                  <li class="becomeASP-list">Because I Become a Member of The International Association of Home Staging Professionals<sup>&reg;</sup> for FREE</li>
+                  <li class="becomeASP-list">Fabulous Support for Me From IAHSP<sup>&reg;</sup> Chapters, ASP<sup>&reg;</sup>/ASPM<sup>&reg;</sup> Mentors, &amp; the Stagedhomes.com<sup>&reg;</sup> Team</li>
+                </ol>
+              </div>
+
+              <div class="paragraph-spacing text-center">
+                <strong>Contact Us for Info &amp; Savings</strong>
+              </div>
+              
+              <!-- Buttons to Call or Email SHC -->
+              <div class="paragraph-spacing text-center" style="margin-bottom: 30px;">
+                <a type="button" class="btn btn-success buttonStyle" href="tel:1-800-392-7161">
+                  <i class="fa fa-phone"></i>&nbsp;&nbsp;
+                  Call Us
+                </a>
+
+                <a type="button" class="btn btn-success buttonStyle" href="mailto:aspcourses@stagedhomes.com">
+                  <i class="fa fa-envelope"></i>&nbsp;&nbsp;
+                  E-Mail Us
+                </a>
+              </div>
+            </section>
+          </div><!-- Section: About -->
+
+          <!-- *******************************************************
+            Section 3: Info
+          ******************************************************* -->
+          <div class="item active" style="text-align: left;">
+            <div>
+              Statistics show that homes that are ASP<sup>&reg;</sup> Staged in today's market sell much faster than those that are not Staged, and usually for more money!
+            </div>
+
+            <div class="paragraph-spacing">
+              StagedHomes.com<sup>&reg;</sup> of over 1,000 homes (62% vacant, 38% occupied) across North America prepared for sale by Accredited Staging Professionals (ASP<sup>&reg;</sup>) show that Staged homes sell in an average of 11 days whereas homes that aren't Staged take 90 days or more.
+            </div>
+
+            <div class="paragraph-spacing">
+              See your ROSI<sup>&trade;</sup> (Return On Staging Investment<sup>&trade;</sup>) by clicking the button below.
+            </div>
+
+            <!-- NAVIGATION BUTTONS -->
+            <div class="text-center button-spacing">
+              <button type="button" class="btn btn-success buttonStyle" ng-click="ngappScrollTo()" data-target="#myCarousel" data-slide-to="4">
+                CALCULATOR&nbsp;&nbsp;
+                <i class="fa fa-arrow-circle-right"></i>
+              </button>
+            </div>
+          </div><!-- Section 1: Info -->
+
+          <!-- *******************************************************
+            Section 4: Input Values
+          ******************************************************* -->
+          <div class="item">
+            <div>
+              Avg # of months on Market for homes that are ASP<sup>&reg;</sup> Staged before Sale
+            </div>
+
+            <div class="form-group" style="margin-top: 10px;" id="stagedBeforeSale-error">
+              <div class="input-group">
+                <span class="control-label input-group-addon">$</span>
+                <input type="number" id="stagedBeforeSale" class="form-control" aria-label="Amount (to the nearest dollar)" value="0.4">
+              </div>
+            </div>
+
+            <div class="calculator-text-spacing">
+              Avg # of months on Market for homes that are Not Staged before Sale
+            </div>
+
+            <div class="form-group" style="margin-top: 10px;" id="notStagedBeforeSale-error">
+              <div class="input-group">
+                <span class="control-label input-group-addon">$</span>
+                <input type="number" id="notStagedBeforeSale" class="form-control" aria-label="Amount (to the nearest dollar)" value="3">
+                <span class="control-label input-group-addon">.00</span>
+              </div>
+            </div>
+
+            <div class="calculator-text-spacing">
+              Mortgage Amount per Month (Dollar Amount)
+            </div>
+
+            <div class="form-group" style="margin-top: 10px;" id="mortgageAmt-error">
+              <div class="input-group">
+                <span class="control-label input-group-addon">$</span>
+                <input type="number" id="mortgageAmt" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="3000">
+                <span class="control-label input-group-addon">.00</span>
+              </div>
+            </div>
+
+            <div class="calculator-text-spacing">
+              Monthly Utilities, HO fees, taxes, insurance &amp; upkeep (Dollar Amount)
+            </div>
+
+            <div class="form-group" style="margin-top: 10px;" id="monthlyUtilities-error">
+              <div class="input-group">
+                <span class="control-label input-group-addon">$</span>
+                <input type="number" id="monthlyUtilities" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="500">
+                <span class="control-label input-group-addon">.00</span>
+              </div>
+            </div>
+
+            <div class="calculator-text-spacing">
+              Staging Investment (Dollar Amount)
+            </div>
+
+            <div class="form-group" style="margin-top: 10px;" id="stagingInvestment-error">
+              <div class="input-group">
+                <span class="control-label input-group-addon">$</span>
+                <input type="number" id="stagingInvestment" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="3000">
+                <span class="control-label input-group-addon">.00</span>
+              </div>
+            </div>
+
+            <!-- NAVIGATION BUTTONS -->
+            <div class="text-center" style="margin-top: 40px; margin-bottom: 30px;">
+              <button type="button" class="btn btn-success buttonStyle" ng-click="ngappScrollTo()" data-target="#myCarousel" data-slide-to="3">
+                <i class="fa fa-arrow-circle-left"></i>&nbsp;&nbsp;
+                BACK
+              </button>
+
+              <button type="button" class="btn btn-success buttonStyle" id="btnResults" data-target="#myCarousel" data-slide-to="" ng-click="calculate_results();">
+                RESULTS&nbsp;&nbsp;
+                <i class="fa fa-arrow-circle-right"></i>
+              </button>
+            </div>
+          </div><!-- Section 2: Data -->
+
+          <!-- *******************************************************
+            Section 5: Results
+          ******************************************************* -->
+          <div class="item">
+            <div class="text-center">
+              Cost to Sell Your Home Unstaged
+            </div>
+
+            <div class="text-center" style="margin-top: 10px;">
+              <span class="result-format label label-default" id="costUnstaged"></span>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+              Investment to Sell Your Home Staged
+            </div>
+
+            <div class="text-center" style="margin-top: 10px;">
+              <span class="result-format label label-default" id="costStaged"></span>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+              Savings When You SELL Your Home ASP<sup>&reg;</sup> Staged
+            </div>
+
+            <div class="text-center" style="margin-top: 10px;">
+              <span class="result-format label label-primary" id="savingsStaged"></span>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+              Return on Staging Investment<sup>&trade;</sup> (ROSI<sup>&trade;</sup>)
+            </div>
+
+            <div class="text-center" style="margin-top: 10px;">
+              <span class="result-format label label-primary" id="rosi"></span>
+            </div>
+
+            <!-- NAVIGATION BUTTONS -->
+            <div class="text-center" style="margin-top: 40px; margin-bottom: 30px;">
+              <a type="button" class="btn btn-success buttonStyle" ng-click="results_back(); ngappScrollTo;" data-target="#myCarousel" data-slide-to="4">
+                <i class="fa fa-arrow-circle-left"></i>&nbsp;&nbsp;
+                BACK
+              </a>
+
+              <a type="button" class="btn btn-success buttonStyle" href="#my-menu">
+                MENU&nbsp;&nbsp;
+                <i class="fa fa-home"></i>
+              </a>
+            </div>
+          </div><!-- Section 3: Results -->
+        </div>
+      </div><!-- END: Main Carousel -->
+    </div><!-- /container -->
+  </div><!-- /content -->
+
+    
+   <!-- *******************************************************
+      MENU ITEMS
+    ******************************************************* -->
+    <nav id="my-menu">
+        <ul>
+          <li class="text-center" id="menu-header">
+            Home Staging Calculator
+          </li>
+          <li class="menuFonts">
+            <a href="#" data-target="#myCarousel" data-slide-to="3">
+              <i class="fa fa-home"></i>&nbsp;&nbsp;
+              Calculator
+            </a>
+          </li>
+          <li class="menuFonts">
+            <a href="#" data-target="#myCarousel" data-slide-to="1">
+              <i class="fa fa-check-circle"></i>&nbsp;&nbsp;
+              ROSI<sup>&trade;</sup>
+            </a>
+          </li>
+          <li class="menuFonts">
+            <a href="#" data-target="#myCarousel" data-slide-to="2">
+              <i class="fa fa-check-circle"></i>&nbsp;&nbsp;
+              Become an ASP<sup>&reg;</sup>
+            </a>
+          </li>
+          <li class="menuFonts">
+            <a href="#" data-target="#myCarousel" data-slide-to="0">
+              <i class="fa fa-info-circle"></i>&nbsp;&nbsp;
+              About StagedHomes
+            </a>
+          </li>
+          <li class="mm-multiline">
+            <a>
+              <div>
+                &copy; 1999 - <span id="currentYear"></span> StagedHomes.com<sup>&reg;</sup>. All rights reserved.
+              </div>
+              <div>&nbsp;</div>
+              <div><img src="images/Logo-AllThree.png" class="center-block img-responsive" style="max-height: 75px;" /></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    <!-- JS Components -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>         <!-- Bootstrap 3 JS -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery.mmenu.min.all.js"></script>
+    <script src="js/stagedhomes.js"></script>           <!-- Custom JS -->
+    <script src="js/fastclick.js"></script>             <!-- Remove 300ms Click Delays -->
+    <script src="intelxdk.js" type="text/javascript"></script>
+
+    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+</body>
+</html>

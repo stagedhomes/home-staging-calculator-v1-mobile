@@ -1,0 +1,243 @@
+/* --------------------------------------------
+	Font formats.
+-------------------------------------------- */
+h1 {
+	font-family: arial, tahoma;
+	font-weight: bold;
+	font-size: 24px;
+	color: #33841a;
+}
+
+.mainBodyFont {
+	font-family: arial, tahoma;
+	font-size: 18px;
+}
+
+.menuFonts {
+	font-size: 20px;
+}
+
+.buttonStyle {
+	font-family: arial, tahoma;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.result-format {
+	font-family: arial, tahoma;
+	font-size: 26px;
+}
+
+/* Menu Border */
+#menu-header {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 17px;
+  background: #375e30;
+}
+
+/* --------------------------------------------
+	Spacing between the different elements.
+-------------------------------------------- */
+.main-spacing {
+	/*margin-top: 60px;*/
+	margin-bottom: 20px;
+}
+
+.paragraph-spacing {
+	margin-top: 20px;
+}
+
+.button-spacing {
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+.calculator-text-spacing {
+	margin-top: 30px;
+}
+
+.calculator-textbox-spacing {
+	margin-top: 10px;
+}
+
+.about-contact-info {
+	margin-right: 10px;
+}
+
+.becomeASP-list {
+  margin-bottom: 20px;
+}
+
+.becomeASP-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.becomeASP-asActive {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  font-weight: bold;
+  color: #33841a;
+}
+
+
+/* --------------------------------------------
+  Other Customizations
+-------------------------------------------- */
+.main-logo {
+  max-width: 100%;
+  max-height: 60px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+/* This fixes the image alignment issue. */
+.header-alignment {
+  height: 65px;
+  width: 3840px; /* 4k Width Resolution */
+  vertical-align: middle;
+  text-align: center;
+  display: table-cell;
+}
+
+
+/* --------------------------------------------
+	navbar colors.
+-------------------------------------------- */
+.navbar-default {
+  background-color: #33924f;
+  border-color: #2f7c45;
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #2f7c45;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #ffffff;
+  background-color: #2f7c45;
+}
+.navbar-default .navbar-toggle {
+  border-color: #2f7c45;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #2f7c45;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #2f7c45;
+  }
+}
+
+/* --------------------------------------------
+  mmenu Customizations
+-------------------------------------------- */
+/* Changes Menu Color */
+#my-menu {
+  background-color: #588650;
+  color: #fff;
+}
+
+
+/* --------------------------------------------
+  mmenu Plugin
+-------------------------------------------- */
+html, body
+{
+  padding: 0;
+  margin: 0;
+}
+
+nav:not(.mm-menu)
+{
+  display: none;
+}
+
+.header,
+.content,
+.footer
+{
+  text-align: center;
+}
+.header,
+.footer
+{
+  /*background: #777;*/
+  font-size: 16px;
+  font-weight: bold;
+  /*color: #fff;*/
+  line-height: 40px;
+
+  /* MODS */
+  background: #fff;
+  border-bottom: 1px solid #588650;
+  color: #588650;
+  vertical-align: middle;
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+  width: 100%;
+  height: 65px;
+  padding: 0 50px;
+}
+.header.fixed
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.footer.fixed
+{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.header a
+{
+  background: center center no-repeat transparent;
+  /*background-image: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADhJREFUeNpi/P//PwOtARMDHQBdLGFBYtMq3BiHT3DRPU4YR4NrNAmPJuHRJDyahEeT8Ii3BCDAAF0WBj5Er5idAAAAAElFTkSuQmCC );*/
+
+  display: block;
+  width: 40px;
+  height: 30px;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
